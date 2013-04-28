@@ -7,7 +7,7 @@ namespace KataGasolineras
 {
     public class Journey
     {
-        MiniumDistance miniumDistance;
+        private const int MinimumDistance = 200;
         private Position initialPosition;
         private Position finalPosition;
         private PositonList positionList;
@@ -18,8 +18,7 @@ namespace KataGasolineras
         }
         
         public Journey(Position initialPosition, Position finalPosition)
-        {
-            this.miniumDistance = new MiniumDistance(200);
+        {   
             this.initialPosition = initialPosition;
             this.finalPosition = finalPosition;
             GeneratePositionList();
@@ -27,19 +26,24 @@ namespace KataGasolineras
 
         public bool IsValidDistance()
         {
-            return this.initialPosition.IsValidDistance(this.finalPosition, this.miniumDistance);
+            return initialPosition.IsValidDistance(finalPosition, MinimumDistance);
+        }
+
+        public Position EmptyPetrol()
+        {
+            return positionList.GetRandomPosition();
         }
 
         private void GeneratePositionList()
         {
             positionList = new PositonList();
 
-            double distance = this.initialPosition.CalculateDistance(this.finalPosition);
+            double distance = CalculateJourneyDistance();
+            
+            Position summatoryPosition = GenerateSummatoryPosition();
 
-            Position summatoryPosition = this.initialPosition.GetSummatoryPosition(this.finalPosition);
-
-            double initialPositionX = this.initialPosition.X;
-            double initialPositionY = this.initialPosition.Y;
+            double initialPositionX = initialPosition.X;
+            double initialPositionY = initialPosition.Y;
 
             for (int i = 0; i <= distance; i++)
             {
@@ -53,9 +57,14 @@ namespace KataGasolineras
             }
         }
 
-        public Position EmptyPetrol()
+        private Position GenerateSummatoryPosition()
         {
-            return this.positionList.GetRandomPosition();
+            return initialPosition.GetSummatoryPosition(finalPosition);
         }
+
+        private double CalculateJourneyDistance()
+        {
+            return initialPosition.CalculateDistance(finalPosition);
+        }       
     }
 }

@@ -21,7 +21,7 @@ namespace KataGasolineras
 
             if (isValidDistance)
             {
-                this.petrolStationList.Add(petrolStation);
+                petrolStationList.Add(petrolStation);
                 isAdded = true;
             }
 
@@ -33,7 +33,7 @@ namespace KataGasolineras
             bool isValidDistance = true;
 
             //If one petrolStation is found distance isn't valid 
-            PetrolStation foundPetrolStation = (from e in this.petrolStationList
+            PetrolStation foundPetrolStation = (from e in petrolStationList
                                            where !e.IsValidDistance(petrolStation)
                                            select e).FirstOrDefault();
 
@@ -52,7 +52,7 @@ namespace KataGasolineras
 
         public IEnumerator<PetrolStation> GetEnumerator()
         {
-            return this.petrolStationList.GetEnumerator();
+            return petrolStationList.GetEnumerator();
         }
 
 
@@ -63,7 +63,7 @@ namespace KataGasolineras
 
         private PetrolStation FindPetrolStationWithMinDistance(Position position)
         {
-            return this.petrolStationList.OrderBy(p => p.Position.CalculateDistance(position)).FirstOrDefault();            
+            return petrolStationList.OrderBy(p => p.Position.CalculateDistance(position)).FirstOrDefault();            
         }
     }
 }

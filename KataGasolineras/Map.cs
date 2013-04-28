@@ -28,15 +28,15 @@ namespace KataGasolineras
 
         public Map()
         {
-            this.mapDimension = new MapDimension(300, 300);
+            this.mapDimension = new MapDimension(1000, 1000);
             GenerateElements();           
         }
 
         private void GenerateElements()
         {
             ElementMapGenerator elementMapGenerator = new ElementMapGenerator(this);
-            this.petrolStationList = elementMapGenerator.GeneratePetrolStations();
-            this.journey = elementMapGenerator.GenerateJourney();
+            petrolStationList = elementMapGenerator.GeneratePetrolStations();
+            journey = elementMapGenerator.GenerateJourney();
         }
     }
 }

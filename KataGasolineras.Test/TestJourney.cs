@@ -9,17 +9,8 @@ namespace KataGasolineras.Test
     [TestClass]
     public class TestJourney
     {
-        MiniumDistance miniumDistance;
-
-        [TestInitialize]
-        public void SetUp()
-        {
-            miniumDistance = new MiniumDistance(200);
-        }
-
-
         [TestMethod]
-        public void JourneyMeetsMiniumDistance()
+        public void JourneyMeetsMinimumDistance()
         {
             Position initialPosition = new Position(1, 200);
             Position finalPosition = new Position(400, 400);         
@@ -31,7 +22,7 @@ namespace KataGasolineras.Test
         }
 
         [TestMethod]
-        public void JourneyNotMeetsMiniumDistance()
+        public void JourneyNotMeetsMinimumDistance()
         {
             Position initialPosition = new Position(1, 200);
             Position finalPosition = new Position(100, 50);

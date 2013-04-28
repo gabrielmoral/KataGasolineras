@@ -10,7 +10,7 @@ namespace KataGasolineras.Test
     public class TestPetrolStation
     {
         [TestMethod]
-        public void PetrolStationMeetsMiniumDistance()
+        public void PetrolStationMeetsMinimumDistance()
         {
             Position position1 = new Position(110, 100);
             Position position2 = new Position(115, 95);           
@@ -24,7 +24,7 @@ namespace KataGasolineras.Test
         }
 
         [TestMethod]
-        public void PetrolStationNotMeetsMiniumDistance()
+        public void PetrolStationNotMeetsMinimumDistance()
         {
             Position position1 = new Position(1, 1);
             Position position2 = new Position(2, 2);

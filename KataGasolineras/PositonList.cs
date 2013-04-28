@@ -23,7 +23,7 @@ namespace KataGasolineras
         {
             Random random = new Random(DateTime.Now.Millisecond);
 
-            int index = random.Next(0, this.positionList.Count);
+            int index = random.Next(0, positionList.Count);
 
             return positionList[index];
         }

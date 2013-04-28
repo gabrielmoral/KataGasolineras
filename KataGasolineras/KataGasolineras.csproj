@@ -44,7 +44,6 @@
     <Compile Include="Journey.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="MapDimension.cs" />
-    <Compile Include="MiniumDistance.cs" />
     <Compile Include="PetrolStation.cs" />
     <Compile Include="PetrolStationList.cs" />
     <Compile Include="Position.cs" />
