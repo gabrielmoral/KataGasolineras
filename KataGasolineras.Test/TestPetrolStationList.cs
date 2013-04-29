@@ -10,65 +10,23 @@ namespace KataGasolineras.Test
     public class TestPetrolStationList
     {
         [TestMethod]
-        public void FindNearbyPetrolStationInJourneyWithManualPositions()
+        public void FindNearbyPetrolStationInJourney()
         {
             Map map = new Map();
 
             Position positionWithOutGas = new Position(2, 3);
+            PetrolStation nearbyPetrolStation = new PetrolStation(new Position(3, 3));
 
             map.Journey.PositionList.Add(new Position(0, 1));
             map.Journey.PositionList.Add(new Position(1, 2));
             map.Journey.PositionList.Add(positionWithOutGas);
             map.Journey.PositionList.Add(new Position(3, 4));
-            map.Journey.PositionList.Add(new Position(4, 5));
-            map.Journey.PositionList.Add(new Position(5, 6));
-            map.Journey.PositionList.Add(new Position(6, 7));
 
-            PetrolStation foundPetrolStation = null;
+            map.PetrolStationList.Add(nearbyPetrolStation);
 
-            PetrolStation petrolStation = map.PetrolStationList.FindNearbyPetrolStation(positionWithOutGas);
+            PetrolStation foundPetrolStation = map.PetrolStationList.FindNearbyPetrolStation(positionWithOutGas);
 
-            double auxDistance = 2000;
-
-            foreach (PetrolStation petrolStationAdded in map.PetrolStationList)
-            {
-                double distance = petrolStationAdded.Position.CalculateDistance(positionWithOutGas);
-
-                if (distance < auxDistance)
-                {
-                    auxDistance = distance;
-                    foundPetrolStation = petrolStationAdded;
-                }                
-            }
-
-            Assert.AreEqual(foundPetrolStation, petrolStation);
-        }
-
-        [TestMethod]
-        public void FindNearbyPetrolStationInJourneyWithGeneratedPositions()
-        {
-            Map map = new Map();
-
-            Position position = map.Journey.EmptyPetrol();
-
-            PetrolStation foundPetrolStation = null;
-
-            PetrolStation petrolStation = map.PetrolStationList.FindNearbyPetrolStation(position);
-
-            double auxDistance = 2000;
-
-            foreach (PetrolStation petrolStationAdded in map.PetrolStationList)
-            {
-                double distance = petrolStationAdded.Position.CalculateDistance(position);
-
-                if (distance < auxDistance)
-                {
-                    auxDistance = distance;
-                    foundPetrolStation = petrolStationAdded;
-                }
-            }
-
-            Assert.AreEqual(foundPetrolStation, petrolStation);
+            Assert.AreEqual(nearbyPetrolStation, foundPetrolStation);
         }
     }
 }

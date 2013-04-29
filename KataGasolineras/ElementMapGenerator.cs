@@ -21,8 +21,11 @@ namespace KataGasolineras
 
             while (petrolStationList.Count() < numberOfPetrolStations)
 	        {
-	            PetrolStation petrolStation = GeneratePetrolStation(map.MapDimension);
-                petrolStationList.AddPetrolStationIfIsValidDistance(petrolStation);
+	            PetrolStation petrolStation = GeneratePetrolStation();
+                if (petrolStationList.ValidateDistance(petrolStation))
+                {
+                    petrolStationList.Add(petrolStation);
+                }               
 	        }
 
             return petrolStationList;
@@ -43,9 +46,9 @@ namespace KataGasolineras
             return journey;
         }
        
-        public PetrolStation GeneratePetrolStation(MapDimension mapDimension)
+        public PetrolStation GeneratePetrolStation()
         {
-            Position position = Position.GeneratePosition(mapDimension);
+            Position position = Position.GeneratePosition(map.MapDimension);
             PetrolStation petrolStation = new PetrolStation(position);
 
             return petrolStation;
