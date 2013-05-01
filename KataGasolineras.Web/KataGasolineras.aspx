@@ -6,6 +6,7 @@
 <head>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jcanvas.min.js"></script>
+    <script src="js/painterElements.js"></script>
     <script src="js/kataGasolineras.js"></script>
 </head>
 <body>

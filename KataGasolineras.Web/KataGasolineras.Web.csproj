@@ -54,6 +54,7 @@
     <Content Include="js\jcanvas.min.js" />
     <Content Include="js\jquery-1.9.1.min.js" />
     <Content Include="js\kataGasolineras.js" />
+    <Content Include="js\painterElements.js" />
     <Content Include="KataGasolineras.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

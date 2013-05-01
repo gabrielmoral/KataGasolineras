@@ -7,8 +7,8 @@ $(document).ready(function () {
     $grid.attr("width", width);
     $grid.attr("height", height);
 
-    createMap(width, height);   
-    createPetrolStationList();            
+    painter.createMap(width, height);   
+    getPetrolStationList();            
 
     $("#btnEmptyPetrol").click(function () {
         carFuelEmpty();
@@ -19,52 +19,7 @@ $(document).ready(function () {
     });
 });
 
-function Position(x, y) {
-    this.X = x;
-    this.Y = y;
-}
-
-function createPetrolStation(position, radius) {
-    createCircle(position, "green", radius);
-}
-
-function createCircle(position, colour, radius) {
-    $("#grid").drawArc({
-        fillStyle: colour,
-        x: position.X, y: position.Y,
-        radius: radius
-    });
-}
-
-function createJourney(journey) {
-    createLine(journey.InitialPosition, journey.FinalPosition);
-}
-
-function createLine(initialPosition, finalPosition) {
-    $("#grid").drawLine({
-        strokeStyle: "#000000",
-        strokeWidth: 1,
-        x1: initialPosition.X, y1: initialPosition.Y,
-        x2: finalPosition.X, y2: finalPosition.Y
-    });
-}
-
-function createMap(width, height){
-    for (var x = 0; x <= width; x = x + 5) {
-        var initialPosition = new Position(x, 0);
-        var finalPosition = new Position(x, width);
-        createLine(initialPosition, finalPosition);
-    }
-
-    for (var y = 0; y <= height; y = y + 5) {
-        var initialPosition = new Position(0, y);
-        var finalPosition = new Position(height, y);
-        createLine(initialPosition, finalPosition);
-    }
-}
-
-function createPetrolStationList(){
-
+function getPetrolStationList(){
     var url = 'KataGasolineras.aspx/GetMap';
 
     $.ajax({
@@ -74,10 +29,10 @@ function createPetrolStationList(){
         success: function (data) {
             var map = data.d;
 
-            createJourney(map.Journey);
+            painter.createJourney(map.Journey);
 
             $.each(map.PetrolStationList.PetrolStations, function (i, item) {
-                createPetrolStation(item.Position, 4);
+                painter.createPetrolStation(item.Position, 4);
             }); 
         }
     });
@@ -92,7 +47,7 @@ function carFuelEmpty() {
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             var positionCarFuelEmpty = data.d;                    
-            createCircle(positionCarFuelEmpty, "red", 4);
+            painter.createPositionWithouthFuel(positionCarFuelEmpty);
         }
     });
 }
@@ -105,7 +60,7 @@ function findNearbyPetrolStation() {
         contentType: "application/json; charset=utf-8",               
         success: function (data) {
             var position = data.d;
-            createPetrolStation(position, 8);
+            painter.createPetrolStation(position, 8);
         }
     });
 }
