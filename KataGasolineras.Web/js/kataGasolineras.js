@@ -3,6 +3,7 @@ $(document).ready(function () {
     var width = 1000;
     var height = 1000;
     var $grid = $("#grid");
+    var $btnFindPetrolStation = $("#btnFindPetrolStation");
 
     $grid.attr("width", width);
     $grid.attr("height", height);
@@ -12,9 +13,10 @@ $(document).ready(function () {
 
     $("#btnEmptyPetrol").click(function () {
         carFuelEmpty();
+        $btnFindPetrolStation.removeAttr("disabled");
     });
 
-     $("#btnFindPetrolStation").click(function () {
+     $btnFindPetrolStation.click(function () {
         findNearbyPetrolStation();
     });
 });

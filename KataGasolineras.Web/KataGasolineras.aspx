@@ -13,7 +13,7 @@
    
     <p>
         <button id="btnEmptyPetrol">Empty fuel!</button>
-        <button id="btnFindPetrolStation">Find petrol station!</button>
+        <button id="btnFindPetrolStation" disabled>Find petrol station!</button>
     </p>
     <canvas id="grid" />
   
