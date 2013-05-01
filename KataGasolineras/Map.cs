@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace KataGasolineras
-{
+{    
     public class Map
     {        
         private MapDimension mapDimension;
@@ -15,12 +15,12 @@ namespace KataGasolineras
         {
             get { return mapDimension; }
         }
-
+   
         public Journey Journey
         {
             get { return journey; }          
         }
-
+        
         public PetrolStationList PetrolStationList
         {
             get { return petrolStationList; }            

@@ -45,11 +45,16 @@ namespace KataGasolineras
         {
             double distance = CalculateDistance(position);
 
-            Position vectorPosition = new Position(this.x - position.x, this.y - position.y);
+            Position vectorPosition = GetVectorPosition(position);
 
             Position summatoryPosition = new Position(vectorPosition.x / distance, vectorPosition.y / distance);
 
             return summatoryPosition;
+        }
+
+        private Position GetVectorPosition(Position position)
+        {
+            return new Position(position.x - this.x, position.y - this.y);
         }
     }
 }

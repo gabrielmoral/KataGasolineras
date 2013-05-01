@@ -4,24 +4,34 @@ using System.Linq;
 using System.Text;
 
 namespace KataGasolineras
-{
+{  
     public class Journey
     {
         private const int MinimumDistance = 200;
         private Position initialPosition;
         private Position finalPosition;
-        private PositonList positionList;
+        private JourneyPositonList journeyPositionList;
 
-        public PositonList PositionList
+        public Position InitialPosition
         {
-            get { return positionList; }            
+            get { return initialPosition; }      
+        }        
+
+        public Position FinalPosition
+        {
+            get { return finalPosition; }            
+        }        
+
+        public JourneyPositonList JourneyPositionList
+        {
+            get { return journeyPositionList; }            
         }
         
         public Journey(Position initialPosition, Position finalPosition)
         {   
             this.initialPosition = initialPosition;
             this.finalPosition = finalPosition;
-            GeneratePositionList();
+            GenerateJourneyPositions();
         }
 
         public bool IsValidDistance()
@@ -29,14 +39,14 @@ namespace KataGasolineras
             return initialPosition.IsValidDistance(finalPosition, MinimumDistance);
         }
 
-        public Position EmptyPetrol()
+        public Position CarFuelEmpty()
         {
-            return positionList.GetRandomPosition();
+            return journeyPositionList.GetRandomPosition();
         }
 
-        private void GeneratePositionList()
+        private void GenerateJourneyPositions()
         {
-            positionList = new PositonList();
+            journeyPositionList = new JourneyPositonList();
 
             double distance = CalculateJourneyDistance();
             
@@ -48,9 +58,9 @@ namespace KataGasolineras
             for (int i = 0; i <= distance; i++)
             {
                 double newPositionX = initialPositionX + summatoryPosition.X;
-                double newPositionY = initialPositionX + summatoryPosition.Y;
+                double newPositionY = initialPositionY + summatoryPosition.Y;
 
-                positionList.Add(new Position(newPositionX, newPositionY));
+                journeyPositionList.Add(new Position(newPositionX, newPositionY));
 
                 initialPositionX = newPositionX;
                 initialPositionY = newPositionY;

@@ -9,6 +9,11 @@ namespace KataGasolineras
     {
         private IList<PetrolStation> petrolStationList;
 
+        public IEnumerable<PetrolStation> PetrolStations
+        {
+            get { return petrolStationList; }
+        }
+
         public PetrolStationList()
         {
             petrolStationList = new List<PetrolStation>();

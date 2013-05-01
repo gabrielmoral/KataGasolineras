@@ -17,10 +17,10 @@ namespace KataGasolineras.Test
             Position positionWithOutGas = new Position(2, 3);
             PetrolStation nearbyPetrolStation = new PetrolStation(new Position(3, 3));
 
-            map.Journey.PositionList.Add(new Position(0, 1));
-            map.Journey.PositionList.Add(new Position(1, 2));
-            map.Journey.PositionList.Add(positionWithOutGas);
-            map.Journey.PositionList.Add(new Position(3, 4));
+            map.Journey.JourneyPositionList.Add(new Position(0, 1));
+            map.Journey.JourneyPositionList.Add(new Position(1, 2));
+            map.Journey.JourneyPositionList.Add(positionWithOutGas);
+            map.Journey.JourneyPositionList.Add(new Position(3, 4));
 
             map.PetrolStationList.Add(nearbyPetrolStation);
 
