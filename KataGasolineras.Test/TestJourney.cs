@@ -44,19 +44,5 @@ namespace KataGasolineras.Test
 
             Assert.AreEqual(true, result);
         }
-
-
-        [TestMethod]
-        public void FirstJourneyPositionIsEqualsInitialPosition()
-        {
-            Map map = new Map();
-
-            Position firstPosition = map.Journey.JourneyPositionList.GetPosition(1);
-
-            Position initialPosition = map.Journey.InitialPosition;
-
-            //Assert.AreEqual(initialPosition.X, firstPosition.X);
-            //Assert.AreEqual(initialPosition.Y, firstPosition.Y);
-        }
     }
 }
