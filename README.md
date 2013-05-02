@@ -6,3 +6,9 @@ En ese plano finito hay 10 gasolineras repartidas aleatoriamente con una distanc
 De repente te quedas sin gasolina. Lo bueno es que sabes dónde estás y dónde están las gasolineras.
 
 ¿Cuál es la gasolinera más cercana?
+
+Normas:
+
+- Ubicar aleatoriamente las 10 gasolineras en el plano, con una distancia mínima entre ellas de 5.
+- Ubicar aleatoriamente el punto A y el punto B en el plano, con una distancia mínima de 200.
+- El coche viaja en línea recta entre A y B. Se nos acaba la gasolina en un punto aletario de esa línea.
