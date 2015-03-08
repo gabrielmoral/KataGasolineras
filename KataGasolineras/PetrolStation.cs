@@ -7,7 +7,7 @@ namespace KataGasolineras
 {
     public class PetrolStation
     {
-        private const int MinimumDistance = 5;
+        private const int MINIMUM_DSTANCE_BETWEEN_PETROL_STATIONS = 5;
         private Position position;
 
         public Position Position
@@ -20,9 +20,9 @@ namespace KataGasolineras
             this.position = position;
         }
 
-        public bool IsValidDistance(PetrolStation petrolStation)
+        public bool IsAtMinimumDistance(PetrolStation petrolStation)
         {
-            return position.IsValidDistance(petrolStation.position, MinimumDistance);
+            return position.IsAtMinimumDistance(petrolStation.position, MINIMUM_DSTANCE_BETWEEN_PETROL_STATIONS);
         }
     }
 }

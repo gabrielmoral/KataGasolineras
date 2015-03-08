@@ -40,10 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ElementMapGenerator.cs" />
+    <Compile Include="MapGenerator.cs" />
     <Compile Include="Journey.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="MapDimension.cs" />
+    <Compile Include="MapElements.cs" />
     <Compile Include="PetrolStation.cs" />
     <Compile Include="PetrolStationList.cs" />
     <Compile Include="Position.cs" />

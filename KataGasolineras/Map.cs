@@ -10,21 +10,18 @@ namespace KataGasolineras
         private MapDimension mapDimension;
         private PetrolStationList petrolStationList;
         private Journey journey;
+        private MapElements elements;
+
+        public MapElements Elements
+        {
+           get { return elements; }
+        }
 
         public MapDimension MapDimension
         {
             get { return mapDimension; }
         }
    
-        public Journey Journey
-        {
-            get { return journey; }          
-        }
-        
-        public PetrolStationList PetrolStationList
-        {
-            get { return petrolStationList; }            
-        }
 
         public Map()
         {
@@ -34,9 +31,7 @@ namespace KataGasolineras
 
         private void GenerateElements()
         {
-            ElementMapGenerator elementMapGenerator = new ElementMapGenerator(this);
-            petrolStationList = elementMapGenerator.GeneratePetrolStations();
-            journey = elementMapGenerator.GenerateJourney();
+            elements = new MapGenerator(this).GenerateMapElements();
         }
     }
 }

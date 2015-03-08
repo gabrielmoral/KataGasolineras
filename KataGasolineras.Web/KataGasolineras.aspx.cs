@@ -23,14 +23,14 @@ namespace KataGasolineras.Web
         [WebMethod]
         public static Position CarFuelEmpty()
         {
-            positionWithoutFuel = map.Journey.CarFuelEmpty();
+            positionWithoutFuel = map.Elements.Journey.CarFuelEmpty();
             return positionWithoutFuel;
         }
 
         [WebMethod]
         public static Position FindNearbyPetrolStation()
         {
-            Position nearbyPetrolStationPosition = map.PetrolStationList.FindNearbyPetrolStation(positionWithoutFuel).Position;
+            Position nearbyPetrolStationPosition = map.Elements.PetrolStationList.FindNearbyPetrolStation(positionWithoutFuel).Position;
             return nearbyPetrolStationPosition;
         }
     }

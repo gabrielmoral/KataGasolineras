@@ -16,7 +16,7 @@ namespace KataGasolineras.Test
             Position finalPosition = new Position(400, 400);         
 
             Journey journey = new Journey(initialPosition, finalPosition);
-            bool result = journey.IsValidDistance();
+            bool result = journey.IsAtMinimumDistanceAllowed();
         
             Assert.AreEqual(true, result);
         }
@@ -28,7 +28,7 @@ namespace KataGasolineras.Test
             Position finalPosition = new Position(100, 50);
          
             Journey journey = new Journey(initialPosition, finalPosition);
-            bool result = journey.IsValidDistance();
+            bool result = journey.IsAtMinimumDistanceAllowed();
 
             Assert.AreEqual(false, result);
         }
@@ -38,9 +38,9 @@ namespace KataGasolineras.Test
         {
             Map map = new Map();
 
-            Position position = map.Journey.CarFuelEmpty();
+            Position position = map.Elements.Journey.CarFuelEmpty();
 
-            bool result = map.Journey.JourneyPositionList.Contains(position);
+            bool result = map.Elements.Journey.JourneyPositionList.Contains(position);
 
             Assert.AreEqual(true, result);
         }

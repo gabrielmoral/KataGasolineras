@@ -6,7 +6,7 @@ using System.Text;
 namespace KataGasolineras
 {
     public class Position
-    {      
+    {
         private double x;
         private double y;
 
@@ -31,9 +31,9 @@ namespace KataGasolineras
             return RandomPositionMap.GeneratePosition(mapDimension);
         }
 
-        public bool IsValidDistance(Position position, int MinimumDistance)
+        public bool IsAtMinimumDistance(Position position, int minimumDistance)
         {
-            return CalculateDistance(position) >= MinimumDistance;
+            return CalculateDistance(position) >= minimumDistance;
         }
 
         public double CalculateDistance(Position position)

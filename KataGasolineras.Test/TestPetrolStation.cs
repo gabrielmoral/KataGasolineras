@@ -18,9 +18,9 @@ namespace KataGasolineras.Test
             PetrolStation petrolStation1 = new PetrolStation(position1);
             PetrolStation petrolStation2 = new PetrolStation(position2);
 
-            bool result = petrolStation1.IsValidDistance(petrolStation2);
+            bool isAtMinimumDistance = petrolStation1.IsAtMinimumDistance(petrolStation2);
 
-            Assert.AreEqual(true, result);
+            Assert.IsTrue(isAtMinimumDistance);
         }
 
         [TestMethod]
@@ -32,9 +32,9 @@ namespace KataGasolineras.Test
             PetrolStation petrolStation1 = new PetrolStation(position1);
             PetrolStation petrolStation2 = new PetrolStation(position2);
 
-            bool result = petrolStation1.IsValidDistance(petrolStation2);
+            bool isAtMinimumDistance = petrolStation1.IsAtMinimumDistance(petrolStation2);
 
-            Assert.AreEqual(false, result);
+            Assert.IsFalse(isAtMinimumDistance);
         }
     }
 }

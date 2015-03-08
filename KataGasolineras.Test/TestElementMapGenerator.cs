@@ -10,19 +10,19 @@ namespace KataGasolineras.Test
     public class TestElementMapGenerator
     {
         Map map;
-        ElementMapGenerator elementMapGenerator;
+        MapGenerator elementMapGenerator;
 
         [TestInitialize]
         public void SetUp()
         {
             map = new Map();
-            elementMapGenerator = new ElementMapGenerator(map);
+            elementMapGenerator = new MapGenerator(map);
         }
 
         [TestMethod]
         public void GenerateValidPetrolStations()
         {           
-            PetrolStationList petrolStationListGenerated = elementMapGenerator.GeneratePetrolStations();
+            PetrolStationList petrolStationListGenerated = elementMapGenerator.GenerateMapElements().PetrolStationList;
 
             using (var petrolStationList = petrolStationListGenerated.GetEnumerator())
             {   
@@ -32,7 +32,7 @@ namespace KataGasolineras.Test
                 {
                     foreach (PetrolStation item in bufferPetrolStation)
                     {
-                        Assert.AreEqual(true, item.IsValidDistance(petrolStationList.Current));       
+                        Assert.AreEqual(true, item.IsAtMinimumDistance(petrolStationList.Current));       
                     }
                     bufferPetrolStation.Add(petrolStationList.Current);
                 }
@@ -42,9 +42,9 @@ namespace KataGasolineras.Test
         [TestMethod]
         public void GenerateValidJourney()
         {          
-            Journey journey = elementMapGenerator.GenerateJourney();
+            Journey journey = elementMapGenerator.GenerateMapElements().Journey;
 
-            Assert.AreEqual(true, journey.IsValidDistance());
+            Assert.AreEqual(true, journey.IsAtMinimumDistanceAllowed());
         }
     }
 }

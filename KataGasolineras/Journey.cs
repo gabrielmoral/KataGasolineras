@@ -7,7 +7,8 @@ namespace KataGasolineras
 {  
     public class Journey
     {
-        private const int MinimumDistance = 200;
+        private const int MINIMUM_JOURNEY_DISTANCE = 200;
+
         private Position initialPosition;
         private Position finalPosition;
         private JourneyPositonList journeyPositionList;
@@ -34,9 +35,9 @@ namespace KataGasolineras
             GenerateJourneyPositions();
         }
 
-        public bool IsValidDistance()
+        public bool IsAtMinimumDistanceAllowed()
         {
-            return initialPosition.IsValidDistance(finalPosition, MinimumDistance);
+            return initialPosition.IsAtMinimumDistance(finalPosition, MINIMUM_JOURNEY_DISTANCE);
         }
 
         public Position CarFuelEmpty()

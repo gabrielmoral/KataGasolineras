@@ -35,7 +35,7 @@ namespace KataGasolineras
 
             //If one petrolStation is found distance isn't valid 
             PetrolStation foundPetrolStation = (from e in petrolStationList
-                                           where !e.IsValidDistance(petrolStation)
+                                           where !e.IsAtMinimumDistance(petrolStation)
                                            select e).FirstOrDefault();
 
             if (foundPetrolStation != null)
